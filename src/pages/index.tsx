@@ -4,6 +4,8 @@ import { Company } from "@/components/home/Company";
 import { About } from "@/components/home/About";
 import {Team} from '@/components/home/Team'
 import Container from "@/layouts/Container";
+import { GetStaticPropsContext } from "next";
+import sanityClient from '@/lib/sanityClient';
 
 export default function Home() {
   return (
@@ -22,4 +24,12 @@ export default function Home() {
       </Container>
     </>
   );
+}
+
+export async function getStaticProps(context:GetStaticPropsContext) {
+  const data = await sanityClient.fetch(`*[_type=="movie"]`);
+  console.log(data)
+  return {
+    props: {}, // will be passed to the page component as props
+  }
 }
