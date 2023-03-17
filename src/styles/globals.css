@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .wrapper{
+        @apply p-4 md:px-[10%];
+    }
+
+    .title {
+        font-size: clamp(3rem,5vw,4.5rem);
+    }
+}
